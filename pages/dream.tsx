@@ -32,7 +32,7 @@ const uploader = Uploader({
 
 const Home: NextPage = () => {
   const [originalPhoto, setOriginalPhoto] = useState<string | null>(null);
-  const [generatedImage, setRestoredImage] = useState<string | null>(null);
+  const [restoredImage, setRestoredImage] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [restoredLoaded, setRestoredLoaded] = useState<boolean>(false);
   const [sideBySide, setSideBySide] = useState<boolean>(false);
@@ -157,7 +157,7 @@ const Home: NextPage = () => {
         <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-100 sm:text-6xl mb-5">
           Generate your <span className="text-blue-600">dream</span> room
         </h1>
-        {status === "authenticated" && data && !generatedImage && (
+        {status === "authenticated" && data && !restoredImage && (
           <p className="text-gray-400">
             You have{" "}
             <span className="font-semibold text-gray-300">
@@ -182,7 +182,7 @@ const Home: NextPage = () => {
         <ResizablePanel>
           <AnimatePresence mode="wait">
             <motion.div className="flex justify-between items-center w-full flex-col mt-4">
-              {generatedImage && (
+              {restoredImage && (
                 <div>
                   Here's your remodeled <b>{room.toLowerCase()}</b> in the{" "}
                   <b>{theme.toLowerCase()}</b> theme!{" "}
@@ -202,7 +202,7 @@ const Home: NextPage = () => {
               {restoredLoaded && sideBySide && (
                 <CompareSlider
                   original={originalPhoto!}
-                  restored={generatedImage!}
+                  restored={restoredImage!}
                 />
               )}
               {status === "loading" ? (
@@ -296,7 +296,7 @@ const Home: NextPage = () => {
                   </div>
                 )
               )}
-              {originalPhoto && !generatedImage && (
+              {originalPhoto && !restoredImage && (
                 <Image
                   alt="original photo"
                   src={originalPhoto}
@@ -305,7 +305,7 @@ const Home: NextPage = () => {
                   height={475}
                 />
               )}
-              {generatedImage && originalPhoto && !sideBySide && (
+              {restoredImage && originalPhoto && !sideBySide && (
                 <div className="flex sm:space-x-4 sm:flex-row flex-col">
                   <div>
                     <h2 className="mb-1 font-medium text-lg">Original Room</h2>
@@ -319,10 +319,10 @@ const Home: NextPage = () => {
                   </div>
                   <div className="sm:mt-0 mt-8">
                     <h2 className="mb-1 font-medium text-lg">Generated Room</h2>
-                    <a href={generatedImage} target="_blank" rel="noreferrer">
+                    <a href={restoredImage} target="_blank" rel="noreferrer">
                       <Image
                         alt="restored photo"
-                        src={generatedImage}
+                        src={restoredImage}
                         className="rounded-2xl relative sm:mt-0 mt-2 cursor-zoom-in w-full h-96"
                         width={475}
                         height={475}
@@ -373,7 +373,7 @@ const Home: NextPage = () => {
                   <button
                     onClick={() => {
                       downloadPhoto(
-                        generatedImage!,
+                        restoredImage!,
                         appendNewToName(photoName!)
                       );
                     }}
