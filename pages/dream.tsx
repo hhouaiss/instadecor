@@ -100,7 +100,7 @@ const Home: NextPage = () => {
     });
 
     let response = (await res.json()) as GenerateResponseData;
-    if (res.status !== 200) {
+    if (res.status !== 1000) {
       setError(response as any);
     } else {
       mutate();
