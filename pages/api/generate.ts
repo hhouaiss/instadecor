@@ -94,7 +94,8 @@ export default async function handler(
 
     // GET request to get the status of the image restoration process & return the result when it's ready
     let generatedImage: string | null = null;
-    while (!generatedImage) {
+    let attempts = 0;
+    while (!generatedImage && attempts < 10) {
       // Loop in 1s intervals until the alt text is ready
       let finalResponse = await fetch(endpointUrl, {
         method: "GET",
@@ -110,7 +111,8 @@ export default async function handler(
       } else if (jsonFinalResponse.status === "failed") {
         break;
       } else {
-        await new Promise((resolve) => setTimeout(resolve, 10000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        attempts++; // Increment the attempts counter
       }
     }
 
