@@ -49,7 +49,7 @@ const Home: NextPage = () => {
     maxFileCount: 1,
     mimeTypes: ["image/jpeg", "image/png", "image/jpg"],
     editor: { images: { crop: false } },
-    tags: [data?.remainingGenerations > 5 ? "paid" : "free"],
+    tags: [data?.remainingGenerations > 3 ? "paid" : "free"],
     styles: {
       colors: {
         primary: "#2563EB", // Primary buttons & links
@@ -89,7 +89,7 @@ const Home: NextPage = () => {
   );
 
   async function generatePhoto(fileUrl: string) {
-    await new Promise((resolve) => setTimeout(resolve, 200));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     setLoading(true);
     const res = await fetch("/api/generate", {
       method: "POST",
