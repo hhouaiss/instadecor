@@ -1,18 +1,36 @@
+import { useState, useEffect } from "react";
 import styles from "../styles/loading-dots.module.css";
 
-const LoadingDots = ({
-  color = "#000",
-  style = "small",
-}: {
-  color: string;
-  style: string;
-}) => {
+type Props = {
+  color?: string;
+  style?: string;
+  time: number; // time in seconds
+};
+
+const LoadingDots = ({ color = "#000", style = "small", time }: Props) => {
+  const [secondsRemaining, setSecondsRemaining] = useState(time);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSecondsRemaining((prevSeconds) => prevSeconds - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <span className={style == "small" ? styles.loading2 : styles.loading}>
-      <span style={{ backgroundColor: color }} />
-      <span style={{ backgroundColor: color }} />
-      <span style={{ backgroundColor: color }} />
-    </span>
+    <>
+      {secondsRemaining <= 0 ? (
+        <span>Request delivered!</span>
+      ) : (
+        <span className={style == "small" ? styles.loading2 : styles.loading}>
+          <span style={{ backgroundColor: color }} />
+          <span style={{ backgroundColor: color }} />
+          <span style={{ backgroundColor: color }} />
+        </span>
+      )}
+      {secondsRemaining > 0 && <span>{` ${secondsRemaining} seconds`}</span>}
+    </>
   );
 };
 
