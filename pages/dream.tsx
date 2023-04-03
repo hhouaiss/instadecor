@@ -151,7 +151,7 @@ const Home: NextPage = () => {
           >
             Over{" "}
             <span className="font-semibold text-gray-200">1 million users</span>{" "}
-            have used Insta Decor so far
+            have used roomGPT so far
           </a>
         )}
         <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-100 sm:text-6xl mb-5">
@@ -338,7 +338,7 @@ const Home: NextPage = () => {
                   className="bg-blue-500 rounded-full text-white font-medium px-4 pt-2 pb-3 mt-8 w-40"
                 >
                   <span className="pt-4">
-                    <LoadingDots color="white" style="large" />
+                    <LoadingDots time={10} color="white" style="large" />
                   </span>
                 </button>
               )}
