@@ -36,7 +36,7 @@ export default function Header({
           >
             <div>Buy Credits</div>
             <div className="text-blue-500 bg-blue-200 rounded-full px-2 text-xs flex justify-center items-center font-bold">
-              New
+              <span className="hidden">New</span>
             </div>
           </Link>
           {photo ? (
