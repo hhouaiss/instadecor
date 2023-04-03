@@ -153,7 +153,7 @@ export default function Pricing() {
           Early access to new features
         </li>
       </ul>
-      <p className="text-gray-400 mb-5">
+      <p className="text-gray-400 mb-5 hidden">
         Interested in team pricing or have any pricing questions? Email{" "}
         <span className="text-gray-300">hassan@roomgpt.io</span>
       </p>

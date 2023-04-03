@@ -4,7 +4,7 @@ const testimonials = [
   [
     {
       content: "So good! I need this right now. Congrats on the launch!",
-      link: "https://twitter.com/eveporcello/status/1631438728999899136",
+      link: "#",
       author: {
         name: "Eve Porcello",
         role: "Engineer & Author",
@@ -15,7 +15,7 @@ const testimonials = [
     {
       content:
         "Finally! Something to help me get over my indecisiveness when decorating my house!",
-      link: "https://twitter.com/arthur_dvorkin/status/1631402865209274369",
+      link: "#",
       author: {
         name: "Arthur Dvorkin",
         role: "Engineer",
@@ -27,7 +27,7 @@ const testimonials = [
     {
       content:
         "This is incredible, you don't need an interior designer anymore.",
-      link: "https://www.tiktok.com/@thenubians/video/7206088336044313861?q=roomgpt.io&t=1677909079689",
+      link: "#",
       author: {
         name: "Ade Dada",
         role: "Startup Founder",
@@ -37,7 +37,7 @@ const testimonials = [
     {
       content:
         "I haven't changed my room layout for 5 years, but this app may change that. Great job.",
-      link: "https://twitter.com/RobAttfield/status/1631545265281974273",
+      link: "#",
       author: {
         name: "Rob Attfield",
         role: "Software Engineer",
@@ -49,7 +49,7 @@ const testimonials = [
     {
       content:
         "This is fantastic. I've already decided on a new wall color from a generated image and repainting it is now my weekend project.",
-      link: "https://twitter.com/Music4UsAll/status/1631622608595607552",
+      link: "#",
       author: {
         name: "Music",
         role: "Some dude on the internet",
@@ -58,7 +58,7 @@ const testimonials = [
     },
     {
       content: "🤯",
-      link: "https://twitter.com/github/status/1631821360619028482",
+      link: "#",
       author: {
         name: "GitHub",
         role: "The one and only",
