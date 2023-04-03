@@ -35,8 +35,10 @@ export default function Header({
             className="border-r border-gray-300 pr-4 flex space-x-2 hover:text-blue-400 transition"
           >
             <div>Buy Credits</div>
-            <div className="text-blue-500 bg-blue-200 rounded-full px-2 text-xs flex justify-center items-center font-bold">
-              <span className="hidden">New</span>
+            <div className="hidden">
+              <div className="text-blue-500 bg-blue-200 rounded-full px-2 text-xs flex justify-center items-center font-bold">
+                New
+              </div>
             </div>
           </Link>
           {photo ? (
