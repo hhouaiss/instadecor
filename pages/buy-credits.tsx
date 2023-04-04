@@ -14,7 +14,7 @@ export default function Pricing() {
   return (
     <div className="flex mx-auto max-w-7xl overflow-visible flex-col items-center justify-center py-2 min-h-screen">
       <Head>
-        <title>Buy RoomGPT Credits</title>
+        <title>Buy Insta Decor Credits</title>
       </Head>
       <Script src="https://js.stripe.com/v3/pricing-table.js" />
       <Script src="https://cdn.paritydeals.com/banner.js" />
@@ -43,8 +43,8 @@ export default function Pricing() {
         {session?.user?.email && (
           // @ts-ignore
           <stripe-pricing-table
-            pricing-table-id="prctbl_1MsCW7CguoLemZgfrFVNMIvU"
-            publishable-key="pk_test_51HGlzZCguoLemZgfFiM4c6JFKHbjq7c5Qu4xgZvMQtLYdyHByMROOtxxfoA98kDQ82PNN6PcAA35dx8JlwoPogPo00hQmV3ie5"
+            pricing-table-id="prctbl_1MtCOiCguoLemZgfU2teKQMX"
+            publishable-key="pk_live_51HGlzZCguoLemZgf8RhdzZAmxoRw2vsSs6UAp29IHODhG8E3JjFDAxhIJpP21tFZu0MR8IjwfH1cD2ikqldlvGsW001JXaevFk"
             client-reference-id={session.user.email}
             customer-email={session.user.email}
           />
@@ -153,9 +153,9 @@ export default function Pricing() {
           Early access to new features
         </li>
       </ul>
-      <p className="text-gray-400 mb-5 hidden">
+      <p className="text-gray-400 mb-5">
         Interested in team pricing or have any pricing questions? Email{" "}
-        <span className="text-gray-300">hassan@roomgpt.io</span>
+        <span className="text-gray-300">contact@myinstadecor.com</span>
       </p>
       <Footer />
     </div>
