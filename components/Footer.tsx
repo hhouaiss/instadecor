@@ -19,7 +19,7 @@ export default function Footer() {
           rel="noreferrer"
           className="font-bold hover:underline hover:text-gray-300 transition underline-offset-2"
         >
-          Support email{" "}
+          <i className="bx bxs-envelope mr-2 text-white"></i> Support email{" "}
         </a>
         <a
           href="https://upload.io"

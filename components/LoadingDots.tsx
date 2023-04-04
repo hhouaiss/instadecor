@@ -21,7 +21,7 @@ const LoadingDots = ({ color = "#000", style = "small", time }: Props) => {
   return (
     <>
       {secondsRemaining <= 0 ? (
-        <span className="flex justify-center items-center"><i className="bx bx-loader-circle bx-flip-horizontal bx-burst mr-2 text-white"></i> Final Touch</span>
+        <span className="flex justify-center items-center"><i className="bx bxs-magic-wand bx-tada bx-flip-horizontal mr-2 text-white"></i> Final Touch</span>
       ) : (
         <span className={style == "small" ? styles.loading2 : styles.loading}>
           <span style={{ backgroundColor: color }} />
