@@ -17,7 +17,7 @@ export default function Footer() {
           href="mailto:contact@myinstadecor.com"
           target="_blank"
           rel="noreferrer"
-          className="hidden font-bold hover:underline hover:text-gray-300 transition underline-offset-2"
+          className="font-bold hover:underline hover:text-gray-300 transition underline-offset-2"
         >
           Support email{" "}
         </a>
