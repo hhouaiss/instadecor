@@ -11,7 +11,15 @@ export default function Footer() {
           rel="noreferrer"
           className="font-bold hover:underline transition hover:text-gray-300 underline-offset-2"
         >
-          Nutlope{" "}
+          Nutlope - 2023 - {" "}
+        </a>
+        <a
+          href="mailto:contact@myinstadecor.com"
+          target="_blank"
+          rel="noreferrer"
+          className="hidden font-bold hover:underline hover:text-gray-300 transition underline-offset-2"
+        >
+          Support email{" "}
         </a>
         <a
           href="https://upload.io"
