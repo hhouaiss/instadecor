@@ -110,7 +110,7 @@ export default async function handler(
       } else if (jsonFinalResponse.status === "failed") {
         break;
       } else {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        await new Promise((resolve) => setTimeout(resolve, 15000));
       }
     }
 
