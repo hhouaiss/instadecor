@@ -89,7 +89,7 @@ const Home: NextPage = () => {
   );
 
   async function generatePhoto(fileUrl: string) {
-    await new Promise((resolve) => setTimeout(resolve, 200));
+    await new Promise((resolve) => setTimeout(resolve, 300));
     setLoading(true);
     const res = await fetch("/api/generate", {
       method: "POST",
