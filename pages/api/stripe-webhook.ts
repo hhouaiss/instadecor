@@ -88,16 +88,16 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         },
       });
 
-      await prisma.purchase.create({
+      await prisma.user.update({
+        where: {
+          email: userEmail,
+        },
         data: {
-          creditAmount: creditAmount,
-          user: {
-            connect: {
-              email: userEmail,
-            },
+          credits: {
+            increment: creditAmount,
           },
         },
-      });
+      }); 
     } else if (event.type === "payment_intent.payment_failed") {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
       console.log(
