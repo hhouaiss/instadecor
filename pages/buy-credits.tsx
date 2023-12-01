@@ -43,7 +43,7 @@ export default function Pricing() {
         {session?.user?.email && (
           // @ts-ignore
           <stripe-pricing-table
-            pricing-table-id="prctbl_1MtCOiCguoLemZgfU2teKQMX"
+            pricing-table-id="prctbl_1MsCW7CguoLemZgfrFVNMIvU"
             publishable-key="pk_test_51HGlzZCguoLemZgfFiM4c6JFKHbjq7c5Qu4xgZvMQtLYdyHByMROOtxxfoA98kDQ82PNN6PcAA35dx8JlwoPogPo00hQmV3ie5"
             client-reference-id={session.user.email}
             customer-email={session.user.email}
