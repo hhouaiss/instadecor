@@ -3,6 +3,7 @@ import prisma from "../../lib/prismadb";
 import Stripe from "stripe";
 import { buffer } from "micro";
 import Cors from "micro-cors";
+import { log } from "console";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2022-11-15",
@@ -55,6 +56,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       // @ts-ignore
       const userEmail = paymentIntent.customer_details.email;
+      console.log(`User Email: ${userEmail}`);
       let creditAmount = 0;
 
       // @ts-ignore
