@@ -88,14 +88,13 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         },
       });
 
-
-      await prisma.user.update({
-        where: {
-          email: userEmail,
-        },
+      await prisma.purchase.create({
         data: {
-          credits: {
-            increment: creditAmount,
+          creditAmount: creditAmount,
+          user: {
+            connect: {
+              email: userEmail,
+            },
           },
         },
       });
