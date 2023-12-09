@@ -12,7 +12,7 @@ import { createClient } from '@supabase/supabase-js';
 
 export default function Dashboard({ rooms }: { rooms: Room[] }) {
   const { data: session } = useSession();
-  
+
   return (
     <div className="flex max-w-6xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <Head>
@@ -55,8 +55,9 @@ export default function Dashboard({ rooms }: { rooms: Room[] }) {
 
 const supabase = createClient('https://whhdhiptvqvzfzwchezb.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaGRoaXB0dnF2emZ6d2NoZXpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIwMzc2NTAsImV4cCI6MjAxNzYxMzY1MH0.k2RAWh2WJk0flovuExkxVGc7AlaUYiA3HTdrPAzqCYw');
 
+
 async function uploadImageToSupabase(image: string) {
-  const { data, error } = await supabase.storage
+  const { data, error, } = await supabase.storage
     .from('images')
     .upload('room.jpg', image);
 
@@ -64,7 +65,7 @@ async function uploadImageToSupabase(image: string) {
     throw error;
   }
 
-  return {};
+  return data?.Key;
 }
 
 export async function getServerSideProps(ctx: any) {
