@@ -65,7 +65,7 @@ async function uploadImageToSupabase(image: string) {
     throw error;
   }
 
-  return data?.Key;
+  return data?.path;
 }
 
 export async function getServerSideProps(ctx: any) {
