@@ -8,10 +8,11 @@ import { Room } from "@prisma/client";
 import { RoomGeneration } from "../components/RoomGenerator";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
+import { createClient } from '@supabase/supabase-js';
 
 export default function Dashboard({ rooms }: { rooms: Room[] }) {
   const { data: session } = useSession();
-
+  
   return (
     <div className="flex max-w-6xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <Head>
@@ -52,6 +53,20 @@ export default function Dashboard({ rooms }: { rooms: Room[] }) {
   );
 }
 
+const supabase = createClient('https://whhdhiptvqvzfzwchezb.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaGRoaXB0dnF2emZ6d2NoZXpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIwMzc2NTAsImV4cCI6MjAxNzYxMzY1MH0.k2RAWh2WJk0flovuExkxVGc7AlaUYiA3HTdrPAzqCYw');
+
+async function uploadImageToSupabase(image: string) {
+  const { data, error } = await supabase.storage
+    .from('images')
+    .upload('room.jpg', image);
+
+  if (error) {
+    throw error;
+  }
+
+  return {};
+}
+
 export async function getServerSideProps(ctx: any) {
   const session = await getServerSession(ctx.req, ctx.res, authOptions);
   if (!session || !session.user) {
@@ -70,9 +85,10 @@ export async function getServerSideProps(ctx: any) {
     },
   });
 
-  return {
-    props: {
-      rooms,
-    },
-  };
+  // Upload outputImage to Supabase and replace the URL
+  for (let room of rooms) {
+    room.outputImage = await uploadImageToSupabase(room.outputImage);
+  }
+
+  return { props: { rooms } };
 }
