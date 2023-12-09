@@ -59,7 +59,7 @@ const supabase = createClient('https://whhdhiptvqvzfzwchezb.supabase.co', 'eyJhb
 async function uploadImageToSupabase(image: string) {
   const { data, error, } = await supabase.storage
     .from('enerated_img')
-    .upload('room.jpg', image);
+    .upload('room.png', image);
 
   if (error) {
     throw error;
